@@ -25,8 +25,8 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ["customer", "seller", "admin"],
-        default: "customer"
+        enum: ["user", "admin"],
+        default: "user"
     },
     isVerified: {
         type: Boolean,
@@ -34,7 +34,7 @@ const userSchema = new mongoose.Schema({
     },
     avatar: {
         type: String,
-        default: false
+        default: ""
     },
     verificationToken: {type: String, select: false},
     refreshToken: {type: String, select: false},

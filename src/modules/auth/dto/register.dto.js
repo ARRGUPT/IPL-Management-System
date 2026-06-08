@@ -11,7 +11,8 @@ class RegisterDto extends BaseDto {
         "any.required": "Password is required",                                 // custom messages
         })
         .min(8).max(50).required(),
-        role: Joi.string().valid("customer", "seller").default("customer"),
+        // role: Joi.string().valid("user").default("user"),
+        role: Joi.forbidden(),
     })
 }
 
