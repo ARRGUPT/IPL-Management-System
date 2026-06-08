@@ -2,13 +2,16 @@ import * as ownerService from "../services/owner.service.js"
 import ApiResponse from "../../../common/utils/api-response.js"
 
 const createOwner = async (req, res) => {
-    const owner = await ownerService.createOwner(req.body)
+    const owner = await ownerService.createOwner({
+        ...req.body,
+        userId: req.user._id,
+    })
     ApiResponse.created(res, "Owner Created successfully", owner)
 }
 
 const getAllOwner = async (req, res) => {
     const owners = await ownerService.getAllOwner()
-    ApiResponse.ok(res, "Owner fetched successfully", owners)
+    ApiResponse.ok(res, "Owners fetched successfully", owners)
 }
 
 const getOwnerById = async (req, res) => {

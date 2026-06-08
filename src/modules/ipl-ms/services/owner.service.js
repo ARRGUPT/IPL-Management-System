@@ -1,8 +1,9 @@
 import ApiError from "../../../common/utils/api-error.js";
 import Owner from "../models/owner.model.js";
 
-const createOwner = async ({ name, company }) => {
-  const owner = await Owner.create({ name, company });
+const createOwner = async ({ name, company, userId }) => {
+  const owner = await Owner.create({ name, company, userId });
+
   return owner;
 };
 

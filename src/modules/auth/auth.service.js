@@ -60,8 +60,8 @@ const login = async ({ email, password }) => {
     throw ApiError.forbidden("please verify your email before login");
   }
 
-  const accessToken = generateAccessToken({ id: user._id, role: user.role });
-  const refreshToken = generateRefreshToken({ id: user._id });
+  const accessToken = generateAccessToken({ _id: user._id, role: user.role });
+  const refreshToken = generateRefreshToken({ _id: user._id });
 
   user.refreshToken = hashToken(refreshToken); // User obj ki copy = user(mongoose doc), pehle iss copied user obj mai k:v pair dala
   await user.save({ validateBeforeSave: false }); // phir DB mai store ker diya

@@ -2,6 +2,12 @@ import mongoose from "mongoose";
 
 const ownerSchema = new mongoose.Schema(
   {
+    userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: [true, "User is required"],
+    unique: true
+    },
     name: {
       type: String,
       required: [true, "Owner name is required"],

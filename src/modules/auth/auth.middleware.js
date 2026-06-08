@@ -11,11 +11,11 @@ const authenticate = async (req, res, next) => {                        // authe
 
     if(!token) throw ApiError.unauthorised("Not Authenticated");
     const decoded = verifyAccessToken(token)
-    const user = await User.findById(decoded.id);
+    const user = await User.findById(decoded._id);
     if(!user) throw ApiError.unauthorised("User no longer exists");
 
     req.user = {                // req mai user field add ker rhe hai
-        id: user._id,
+        _id: user._id,
         role: user.role,
         name: user.name,
         email: user.email,
