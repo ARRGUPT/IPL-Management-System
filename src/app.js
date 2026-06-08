@@ -3,6 +3,7 @@ import express from "express"
 import authRoute from "./modules/auth/auth.routes.js"
 import ownerRoutes from "./modules/ipl-ms/routes/owner.routes.js"
 import teamRoutes from "./modules/ipl-ms/routes/team.routes.js"
+import sponsorRoutes from "./modules/ipl-ms/routes/sponsor.routes.js"
 import ApiError from "./common/utils/api-error.js"
 
 const app = express()
@@ -13,6 +14,7 @@ app.use(cookieParser())
 app.use("/api/auth", authRoute)
 app.use("/api/owners", ownerRoutes)
 app.use("/api/teams", teamRoutes)
+app.use("/api/sponsors", sponsorRoutes)
 
 // catch-all for undefined routes
 // app.all handle all HTTP methods(GET, POST, ...)
